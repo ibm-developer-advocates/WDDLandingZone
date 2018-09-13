@@ -1,0 +1,20 @@
+{
+  "name": "wdd-homepage-01",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cf-deployment-tracker-client": "*",
+    "commander": "^2.6.0",
+    "ejs-mate": "^2.3.0",
+    "express": "^4.16.3",
+    "http-post": "^0.1.1",
+    "http-proxy": "^1.8.1"
+  }
+}

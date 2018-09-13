@@ -1,0 +1,5 @@
+---
+applications:
+- name:    hello-wdd-page
+  random-route: true
+  memory:  128M
