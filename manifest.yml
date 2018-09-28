@@ -1,5 +1,14 @@
 ---
+declared-services: 
+  Cloudant-qm:
+    label: Cloudant-qm 
+    plan: Lite 
 applications:
 - name:    hello-wdd-page
-  random-route: true
+  routes: 
+  - route: hello-wdd-page-chatty-llama.eu-gb.mybluemix.net
+  - route: wdd-landing-zone.eu-gb.mybluemix.net
+  - route: wd2.eu-gb.mybluemix.net
   memory:  128M
+  services: 
+    - Cloudant-qm
