@@ -15,6 +15,40 @@
         <%= title %>WDD - Wild Duck Devs
     </title>
 
+    <style>
+        #chatbot {
+            position: absolute;
+            background: white;
+            box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);
+            padding: 2rem 1rem;
+            z-index: 9;
+            max-height: 400px;
+        }
+
+        #messages {
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        p.me {
+            color: grey;
+        }
+
+        p {
+            white-space: pre;
+            white-space: pre-line;
+        }
+
+        a {
+            color: white;
+            font-weight: bolder
+        }
+
+        a:hover {
+            color: white;
+            font-weight: bold
+        }
+    </style>
 </head>
 
 <body>
@@ -27,6 +61,38 @@
             crossorigin="anonymous"></script>
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
             crossorigin="anonymous"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-linkify/2.1.7/linkify.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-linkify/2.1.7/linkify-plugin-hashtag.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-linkify/2.1.7/linkify-jquery.min.js"></script>
+
+
+
+
+        <script>
+            $(function () {
+                $('p').linkify();
+            });
+            $('#sendMessage').click(function (event) {
+                fetch('/api/watson', {
+                    method: 'post',
+                    headers: {
+                        "Content-Type": "application/json; charset=utf-8",
+                    },
+                    body: JSON.stringify({ text: $('#input').val() })
+                }).then((text) => {
+                    console.log(text);
+                    return text.json();
+                }).then(j => {
+                    let txt = $('#input').val();
+                    $('#messages').prepend(`<p class="me">Me: ${txt}</p>`);
+                    $('#messages').prepend(`<p>Watson: ${j.text}</p>`);
+
+                    $('#input').val('')
+                })
+
+            });
+        </script>
 </body>
 
 </html>

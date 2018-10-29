@@ -3,3 +3,4 @@ npm-debug.log
 vcap-local.json
 .TODO
 .vscode
+./vcap-local.json
