@@ -17,7 +17,7 @@
     "body-parser": "^1.18.3",
     "cf-deployment-tracker-client": "*",
     "commander": "^2.6.0",
-    "ejs-mate": "^2.3.0",
+    "ejs-mate": "^3.0.0",
     "express": "^4.16.3",
     "express-async-handler": "^1.1.4",
     "http-post": "^0.1.1",
